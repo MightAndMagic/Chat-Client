@@ -31,7 +31,6 @@ Module Module1
                     End
                 End Try
             End Try
-
             While client.Connected
                 send()
             End While
