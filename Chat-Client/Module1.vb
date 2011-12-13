@@ -67,9 +67,9 @@ Module Module1
     Sub listen()
         Dim nachricht As String = Nothing
         Dim msg(1024) As Byte
+        Dim i As Int32
         Try
             Dim stream As NetworkStream = client.GetStream()
-            Dim i As Int32
             i = stream.Read(msg, 0, msg.Length)
         Catch ex As Exception
             Console.ForegroundColor = ConsoleColor.Red
@@ -77,7 +77,7 @@ Module Module1
             Console.ForegroundColor = ConsoleColor.White
             listenThread.Suspend()
         End Try
-        nachricht = System.Text.Encoding.ASCII.GetString(msg)
+        nachricht = System.Text.Encoding.ASCII.GetString(msg, 0, i)
         Console.ForegroundColor = ConsoleColor.Cyan
         Console.WriteLine("Von Server um " & TimeOfDay & " Uhr")
         Console.ForegroundColor = ConsoleColor.White
