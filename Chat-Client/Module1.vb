@@ -57,11 +57,11 @@ Module Module1
         msg = System.Text.Encoding.ASCII.GetBytes(nachricht)
         Try
             client.GetStream.Write(msg, 0, msg.Length)
+            globalNachricht = nachricht
             Console.ForegroundColor = ConsoleColor.Cyan
             Console.WriteLine("{0} um {1} Uhr", client.Client.RemoteEndPoint, TimeOfDay.TimeOfDay)
             Console.ForegroundColor = ConsoleColor.White
             Console.WriteLine(nachricht & vbCrLf)
-            globalNachricht = nachricht
         Catch e As Exception
             client.Close()
         End Try
