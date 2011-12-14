@@ -5,6 +5,7 @@ Module Module1
     Dim client = Nothing
     Dim listenThread As New System.Threading.Thread(AddressOf listen)
     Dim reconnect As Boolean = False
+    Dim globalNachricht As String = Nothing
     Sub Main()
         Dim ip As IPAddress = Nothing
         Dim port As Integer = 27590
@@ -60,6 +61,7 @@ Module Module1
             Console.WriteLine("{0} um {1} Uhr", client.Client.RemoteEndPoint, TimeOfDay.TimeOfDay)
             Console.ForegroundColor = ConsoleColor.White
             Console.WriteLine(nachricht & vbCrLf)
+            globalNachricht = nachricht
         Catch e As Exception
             client.Close()
         End Try
@@ -78,7 +80,7 @@ Module Module1
             listenThread.Suspend()
         End Try
         nachricht = System.Text.Encoding.ASCII.GetString(msg, 0, i)
-        If nachricht <> "" Then
+        If nachricht <> "" And nachricht <> globalNachricht Then
             Console.ForegroundColor = ConsoleColor.Cyan
             Console.WriteLine("Von Server um " & TimeOfDay & " Uhr")
             Console.ForegroundColor = ConsoleColor.White
