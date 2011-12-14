@@ -68,7 +68,6 @@ Module Module1
             Catch e As Exception
                 client.Close()
             End Try
-        Else
         End If
     End Sub
     Sub listen()
