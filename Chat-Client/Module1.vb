@@ -52,19 +52,24 @@ Module Module1
     End Sub
     Sub send()
         Console.ForegroundColor = ConsoleColor.White
+        Dim tempCursorTop = Console.CursorTop
         Dim nachricht As String = Console.ReadLine()
-        Dim msg(1024) As Byte
-        msg = System.Text.Encoding.ASCII.GetBytes(nachricht)
-        Try
-            client.GetStream.Write(msg, 0, msg.Length)
-            globalNachricht = nachricht
-            Console.ForegroundColor = ConsoleColor.Cyan
-            Console.WriteLine("{0} um {1} Uhr", client.Client.RemoteEndPoint, TimeOfDay.TimeOfDay)
-            Console.ForegroundColor = ConsoleColor.White
-            Console.WriteLine(nachricht & vbCrLf)
-        Catch e As Exception
-            client.Close()
-        End Try
+        Console.SetCursorPosition(0, tempCursorTop)
+        If nachricht <> "" Then
+            Dim msg(1024) As Byte
+            msg = System.Text.Encoding.ASCII.GetBytes(nachricht)
+            Try
+                client.GetStream.Write(msg, 0, msg.Length)
+                globalNachricht = nachricht
+                Console.ForegroundColor = ConsoleColor.Cyan
+                Console.WriteLine("{0} um {1} Uhr", client.Client.RemoteEndPoint, TimeOfDay.TimeOfDay)
+                Console.ForegroundColor = ConsoleColor.White
+                Console.WriteLine(nachricht)
+            Catch e As Exception
+                client.Close()
+            End Try
+        Else
+        End If
     End Sub
     Sub listen()
         Dim nachricht As String = Nothing
