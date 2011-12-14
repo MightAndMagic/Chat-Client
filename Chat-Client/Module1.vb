@@ -78,10 +78,12 @@ Module Module1
             listenThread.Suspend()
         End Try
         nachricht = System.Text.Encoding.ASCII.GetString(msg, 0, i)
-        Console.ForegroundColor = ConsoleColor.Cyan
-        Console.WriteLine("Von Server um " & TimeOfDay & " Uhr")
-        Console.ForegroundColor = ConsoleColor.White
-        Console.WriteLine(nachricht)
+        If nachricht <> "" Then
+            Console.ForegroundColor = ConsoleColor.Cyan
+            Console.WriteLine("Von Server um " & TimeOfDay & " Uhr")
+            Console.ForegroundColor = ConsoleColor.White
+            Console.WriteLine(nachricht)
+        End If
         listen()
     End Sub
 End Module
