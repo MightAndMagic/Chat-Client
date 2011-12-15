@@ -57,7 +57,7 @@ Module Module1
         Console.SetCursorPosition(0, tempCursorTop)
         If nachricht <> "" Then
             Dim msg(1024) As Byte
-            msg = System.Text.Encoding.ASCII.GetBytes(nachricht)
+            msg = System.Text.Encoding.Default.GetBytes(nachricht)
             Try
                 client.GetStream.Write(msg, 0, msg.Length)
                 globalNachricht = nachricht
@@ -83,7 +83,7 @@ Module Module1
             Console.ForegroundColor = ConsoleColor.White
             listenThread.Suspend()
         End Try
-        nachricht = System.Text.Encoding.ASCII.GetString(msg, 0, i)
+        nachricht = System.Text.Encoding.Default.GetString(msg, 0, i)
         If nachricht <> "" And nachricht <> globalNachricht Then
             Console.ForegroundColor = ConsoleColor.Cyan
             Console.WriteLine("Von Server um " & TimeOfDay & " Uhr")
