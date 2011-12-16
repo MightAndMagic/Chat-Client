@@ -54,7 +54,7 @@ Module Module1
         Console.ForegroundColor = ConsoleColor.White
         Dim tempCursorTop = Console.CursorTop
         Dim nachricht As String = Console.ReadLine()
-        Console.SetCursorPosition(0, tempCursorTop)
+        'Console.SetCursorPosition(0, tempCursorTop)
         If nachricht <> "" Then
             Dim msg(1024) As Byte
             msg = System.Text.Encoding.Default.GetBytes(nachricht)

@@ -8,3 +8,13 @@ C:\Users\Alle\Documents\Visual Studio 2010\Projects\Chat-Client\Chat-Client\obj\
 C:\Users\Alle\Documents\Visual Studio 2010\Projects\Chat-Client\Chat-Client\obj\x86\Debug\Chat-Client.exe
 C:\Users\Alle\Documents\Visual Studio 2010\Projects\Chat-Client\Chat-Client\obj\x86\Debug\Chat-Client.xml
 C:\Users\Alle\Documents\Visual Studio 2010\Projects\Chat-Client\Chat-Client\obj\x86\Debug\Chat-Client.pdb
+C:\Users\Alle\Documents\Visual Studio 2010\Projects\Chat-Client - Kopie\Chat-Client\obj\x86\Debug\Chat-Client.exe
+C:\Users\Alle\Documents\Visual Studio 2010\Projects\Chat-Client - Kopie\Chat-Client\obj\x86\Debug\Chat-Client.xml
+C:\Users\Alle\Documents\Visual Studio 2010\Projects\Chat-Client - Kopie\Chat-Client\obj\x86\Debug\Chat-Client.pdb
+C:\Users\Alle\Documents\Visual Studio 2010\Projects\Chat-Client - Kopie\Chat-Client\bin\Debug\Chat-Client.exe
+C:\Users\Alle\Documents\Visual Studio 2010\Projects\Chat-Client - Kopie\Chat-Client\bin\Debug\Chat-Client.pdb
+C:\Users\Alle\Documents\Visual Studio 2010\Projects\Chat-Client - Kopie\Chat-Client\bin\Debug\Chat-Client.xml
+C:\Users\Alle\Documents\Visual Studio 2010\Projects\Chat-Client - Kopie\Chat-Client\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Alle\Documents\Visual Studio 2010\Projects\Chat-Client - Kopie\Chat-Client\obj\x86\Debug\Chat_Client.Resources.resources
+C:\Users\Alle\Documents\Visual Studio 2010\Projects\Chat-Client - Kopie\Chat-Client\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Alle\Documents\Visual Studio 2010\Projects\Chat-Client - Kopie\Chat-Client\obj\x86\Debug\GenerateResource.write.1.tlog
