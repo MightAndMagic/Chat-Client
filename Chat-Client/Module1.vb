@@ -6,6 +6,7 @@ Module Module1
     Dim listenThread As New System.Threading.Thread(AddressOf listen)
     Dim reconnect As Boolean = False
     Dim globalNachricht As String = Nothing
+    Dim nickname
     Sub Main()
         Dim ip As IPAddress = Nothing
         Dim port As Integer = 27590
@@ -44,6 +45,7 @@ Module Module1
             client.Connect(ip, port)
             Console.ForegroundColor = ConsoleColor.Green
             Console.WriteLine("Connected to server on {0}", client.Client.RemoteEndPoint)
+            nickname = client.Client.RemoteEndPoint
         Catch e As SocketException
             Console.ForegroundColor = ConsoleColor.Red
             Console.WriteLine("Could not connect to server. Retrying...")
@@ -56,13 +58,16 @@ Module Module1
         Dim nachricht As String = Console.ReadLine()
         'Console.SetCursorPosition(0, tempCursorTop)
         If nachricht <> "" Then
+            If isSetNick(nachricht) Then
+                nickname = nachricht.Substring(9, nachricht.Length - 9)
+            End If
             Dim msg(1024) As Byte
             msg = System.Text.Encoding.Default.GetBytes(nachricht)
             Try
                 client.GetStream.Write(msg, 0, msg.Length)
                 globalNachricht = nachricht
                 Console.ForegroundColor = ConsoleColor.Cyan
-                Console.WriteLine("{0} um {1} Uhr", client.Client.RemoteEndPoint, TimeOfDay.TimeOfDay)
+                Console.WriteLine("{0} um {1} Uhr", nickname, TimeOfDay.TimeOfDay)
                 Console.ForegroundColor = ConsoleColor.White
                 Console.WriteLine(nachricht)
             Catch e As Exception
@@ -92,4 +97,14 @@ Module Module1
         End If
         listen()
     End Sub
+    Function isSetNick(ByVal nachricht) As Boolean
+        Try
+            If nachricht.substring(1, 7) = "setnick" Then
+                Return True
+            End If
+        Catch ex As Exception
+            Return False
+        End Try
+        Return False
+    End Function
 End Module
