@@ -59,7 +59,12 @@ Module Module1
         'Console.SetCursorPosition(0, tempCursorTop)
         If nachricht <> "" Then
             If isSetNick(nachricht) Then
-                nickname = nachricht.Substring(9, nachricht.Length - 9)
+                Try
+                    If nachricht.Substring(9, nachricht.Length - 9) <> "" Then
+                        nickname = nachricht.Substring(9, nachricht.Length - 9)
+                    End If
+                Catch ex As Exception
+                End Try
             End If
             Dim msg(1024) As Byte
             msg = System.Text.Encoding.Default.GetBytes(nachricht)
