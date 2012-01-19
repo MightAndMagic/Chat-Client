@@ -14,7 +14,7 @@ Module Module1
         Console.ForegroundColor = ConsoleColor.White
         Console.WriteLine("OpenSchoolChat - Client | Alpha, Build 4")
         Try
-            ip = IPAddress.Parse("127.0.0.1")
+            ip = IPAddress.Parse(Console.ReadLine())
         Catch e As Exception
             Console.ForegroundColor = ConsoleColor.Red
             Console.WriteLine("IP adress could not be read. Error code: {0}", e)
@@ -99,6 +99,7 @@ Module Module1
             Console.WriteLine("Von Server um " & TimeOfDay & " Uhr")
             Console.ForegroundColor = ConsoleColor.White
             Console.WriteLine(nachricht)
+            globalNachricht = ""
         End If
         listen()
     End Sub
