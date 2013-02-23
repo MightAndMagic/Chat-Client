@@ -10,15 +10,22 @@ Module Module1
     Sub Main()
         Dim ip As IPAddress = Nothing
         Dim port As Integer = 27590
+        Dim ipOK As Boolean = False
         Console.Title = "OpenSchoolChat - Client"
         Console.ForegroundColor = ConsoleColor.White
         Console.WriteLine("OpenSchoolChat - Client | Alpha, Build 4")
-        Try
-            ip = IPAddress.Parse(Console.ReadLine())
-        Catch e As Exception
-            Console.ForegroundColor = ConsoleColor.Red
-            Console.WriteLine("IP adress could not be read. Error code: {0}", e)
-        End Try
+        While ipOK = False
+            Try
+                Console.Write("Enter the server's IP: ")
+                ip = IPAddress.Parse(Console.ReadLine())
+                ipOK = True
+            Catch e As Exception
+                Console.ForegroundColor = ConsoleColor.Red
+                Console.WriteLine("IP adress could not be read. Error code: {0}", e)
+                Console.WriteLine("Try again please.")
+                Console.ForegroundColor = ConsoleColor.White
+            End Try
+        End While
         While True
             connect(ip, port)
             Try
